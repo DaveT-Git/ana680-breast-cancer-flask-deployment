@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Predictor</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-row label {
+      width: 130px;
+      font-weight: bold;
+    }
+
+    .form-row input {
+      flex: 1;
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .prediction {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #2e7d32;   /* green */
+    }
+  </style>
+  <script>
+    function clearPrediction() {
+      document.getElementById("prediction").innerText = "";
+    }
+  </script>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Breast Cancer Prediction</h2>
+
+  <form action="{{ url_for('predict') }}" method="POST">
+
+    <div class="form-row">
+      <label>Bare Nuclei</label>
+      <input type="number" min="1" max="10" step="1" name="bare_nuclei"
+             value="{{ values.get('bare_nuclei', '') }}"
+             oninput="clearPrediction()" required>
+    </div>
+
+    <div class="form-row">
+      <label>Uniformity of Cell Size</label>
+      <input type="number" min="1" max="10" step="1" name="uniformity_cell_size"
+             value="{{ values.get('uniformity_cell_size', '') }}"
+             oninput="clearPrediction()" required>
+    </div>
+
+    <div class="form-row">
+      <label>Bland Chromatin</label>
+      <input type="number" min="1" max="10" step="1" name="bland_chromatin"
+             value="{{ values.get('bland_chromatin', '') }}"
+             oninput="clearPrediction()" required>
+    </div>
+
+    <div class="form-row">
+      <label>Normal Nucleoli</label>
+      <input type="number" min="1" max="10" step="1" name="normal_nucleoli"
+             value="{{ values.get('normal_nucleoli', '') }}"
+             oninput="clearPrediction()" required>
+    </div>
+
+    <button class="btn" type="submit">Predict</button>
+  </form>
+
+  <div id="prediction" class="prediction">
+    {% if predict %}
+      Prediction: {{ predict }}
+    {% endif %}
+  </div>
+</div>
+
+</body>
+</html>
