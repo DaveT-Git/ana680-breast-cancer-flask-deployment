@@ -2,6 +2,18 @@
 
 Flask web application that predicts breast cancer (benign/malignant) using the UCI Wisconsin dataset.
 
+## Important Disclaimer
+
+**This project is for educational and demonstration purposes only.**
+
+The breast cancer prediction model is built using the public UCI Wisconsin Breast Cancer dataset and a simple Random Forest classifier. It achieves high test accuracy (~0.96) in controlled experiments but is **not** a medical diagnostic tool, has **not** been clinically validated, and should **never** be used for real health decisions.
+
+- Predictions are based on limited features and synthetic/test data patterns — they do **not** replace professional medical advice, screening (e.g., mammograms, biopsies), or consultation with a qualified healthcare provider.
+- False positives/negatives are possible, and real-world performance could differ significantly.
+- Always consult a doctor or oncologist for any health concerns related to breast cancer.
+
+This app is an academic exercise in ML deployment (Flask + Heroku) and is **not** intended for clinical, diagnostic, or therapeutic use.
+
 ## Features Used
 - Bare Nuclei
 - Uniformity of Cell Size
