@@ -20,6 +20,7 @@ Open: http://127.0.0.1:5000
 
 ## Deployment
 
-Deployed on Heroku: https://your-app-name.herokuapp.com
+Deployed on Heroku: https://breast-cancer-predict-djt-37fdafeb6e27.herokuapp.com/predict
+
 
 
